@@ -9,6 +9,23 @@ The project was generated with the following command:
 npx react-native init SendBirdRN0_63_4Demo --version 0.63.4
 ```
 
+## Changes
+
+- App.js: configure Sendbird and log instance
+
+```typescript
+import SendbirdChat from '@sendbird/chat';
+import {OpenChannelModule} from '@sendbird/chat/openChannel';
+const sb = SendbirdChat.init({
+  appId: '123123',
+  modules: [new OpenChannelModule()],
+});
+console.log(sb);
+```
+
+- Podfile: Disabled Flipper
+- AppDelegate.m: Force URL for reaching out to the dev server
+
 # Bundling issue
 
 When requesting the non dev bundle with the minifier (sourceURLForBridge in AppDelegate.m)
